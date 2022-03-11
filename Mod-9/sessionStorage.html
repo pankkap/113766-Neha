@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>session Storage Demo</h1>
+    <input type="text" id="TextBox1" />
+    <button onclick="storeData()">Store Data</button>
+    <button onclick="removeData()">Remove Data</button>
+
+    <a href="details.html">See session Storage</a>
+
+    <script>
+      function storeData() {
+        var sessionData = document.getElementById("TextBox1").value;
+        // setItem is used to store data inside session Storage
+        sessionStorage.setItem("userInfo", sessionData);
+        document.getElementById("TextBox1").value = "";
+      }
+      function removeData(){
+          sessionStorage.removeItem('userInfo');
+      }
+    </script>
+  </body>
+</html>

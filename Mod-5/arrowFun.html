@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Arrow Function Demo</h1>
+    <script>
+      function Person() {
+        // properties
+        this.name = "Pankaj";
+        this.age = 30;
+
+        // methods
+        this.sayName = function() {
+          console.log("My name is: ", this.name);
+
+          // This function not able to access this.name property 
+          // because it will target the window property
+          // function innerfunction(){
+          //   console.log("My name is: ", this.name);
+          // }
+
+          // Arraow fucntion will invoke the parenet block
+          // and able to access this.name  
+          let innerfunction=()=> {
+            console.log("My name is: ", this.name);
+          }
+
+          innerfunction()
+        };
+      }
+
+      var x = new Person();
+      //   console.log((x.name = "sachin"));
+      x.sayName();
+    </script>
+  </body>
+</html>

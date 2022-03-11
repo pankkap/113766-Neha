@@ -1,0 +1,48 @@
+<!-- 
+    Types of Transformation
+    1. Translation 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            width: 100%;
+            height: 100vh;
+            border: 2px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box
+        {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+            border: 5px dotted black;
+        }
+        .box:hover
+        {
+             background-color: orange;
+             /* transform: translate(-200px,-200px); */
+             /* transform: rotate(-180deg); */
+             /* transform: scale(1.5); */
+             transform: skew(40deg, -15deg);
+             transition: 4s;
+             
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

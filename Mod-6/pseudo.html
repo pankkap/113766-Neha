@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      #para1::first-letter {
+        font-size: 40px;
+        color: goldenrod;
+      }
+      #para2::first-line {
+        color: red;
+      }
+      #para2::before {
+        content: "\2764";
+      }
+      #para2::after {
+        content: "\2764";
+      }
+      p::selection{
+          background-color: deeppink;
+          color: white;
+      }
+      a{
+          text-decoration: none;
+          background-color: orange;
+          padding: 10px 40px;
+          border-radius: 20px;
+          color: white;
+      }
+      a:hover
+      {
+          background-color: blue;
+      }
+      p:hover
+      {
+          /* font-size: 30px; */
+      }
+      input:focus
+      {
+          outline: none;
+          background-color: pink;
+      }
+      li:last-child
+      {
+          background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="para1">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto non beatae
+      perspiciatis minus tempora autem, illum numquam suscipit aut cupiditate
+      fugit praesentium, nobis eveniet atque natus aperiam, ipsa rerum
+      distinctio eius? Ipsam quisquam accusantium sint perspiciatis ea delectus
+      ipsa quos adipisci pariatur assumenda! Quaerat assumenda provident nobis
+      ab corporis ipsum officia et animi, doloremque cupiditate id hic.
+      Necessitatibus voluptatem temporibus ipsum quisquam, expedita quam!
+      Accusantium hic magnam nobis eveniet nostrum non saepe repellendus eaque
+      rem laudantium iure dolore fuga quod iste consequatur, nemo velit error.
+      Numquam deleniti distinctio officiis autem quo et pariatur cupiditate,
+      debitis iure. Ex quis dicta nemo.
+    </p>
+    <a href="https://beta-labs.in">Button</a>
+    <p id="para2">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto non beatae
+      perspiciatis minus tempora autem, illum numquam suscipit aut cupiditate
+      fugit praesentium, nobis eveniet atque natus aperiam, ipsa rerum
+      distinctio eius? Ipsam quisquam accusantium sint perspiciatis ea delectus
+      ipsa quos adipisci pariatur assumenda! Quaerat assumenda provident nobis
+      ab corporis ipsum officia et animi, doloremque cupiditate id hic.
+      Necessitatibus voluptatem temporibus ipsum quisquam, expedita quam!
+      Accusantium hic magnam nobis eveniet nostrum non saepe repellendus eaque
+      rem laudantium iure dolore fuga quod iste consequatur, nemo velit error.
+      Numquam deleniti distinctio officiis autem quo et pariatur cupiditate,
+      debitis iure. Ex quis dicta nemo.
+    </p>
+    <input type="text" id="text-1">
+    <ul>
+        <li>Tea</li>
+        <li>Coffee</li>
+        <li>Softdrink</li>
+        <li>Cocktail</li>
+        <li>Juice</li>
+    </ul>
+  </body>
+</html>

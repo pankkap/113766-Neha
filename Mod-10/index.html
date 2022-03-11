@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        font-size: 40px;
+        display: flex;
+        flex-direction: row;
+      }
+      #box-1 {
+        width: 50%;
+        height: 100px;
+        background-color: aqua;
+      }
+      #box-2 {
+        width: 50%;
+        height: 100px;
+        background-color: deeppink;
+      }
+
+      @media screen and (max-width: 500px) {
+        #container
+        {
+            flex-direction: column;
+        }
+        #box-1,
+        #box-2 {
+          width: 100%;
+        }
+
+      }
+      @media screen and (max-width: 300px) {
+        #container
+        {
+            flex-direction: row;
+            font-size: 20px;
+        }
+        #box-1,
+        #box-2 {
+          width: 100%;
+          background-color: cornflowerblue;
+          height: 50px;
+           border: 1px solid white; 
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="box-1">Football</div>
+      <div id="box-2">Cricket</div>
+    </div>
+  </body>
+</html>

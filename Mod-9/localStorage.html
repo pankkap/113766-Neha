@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Local Storage Demo</h1>
+    <input type="text" id="TextBox1" />
+    <button onclick="storeData()">Store Data</button>
+    <button onclick="removeData()">Remove Data</button>
+    <p id="output"></p>
+
+    <a href="details.html">See Local Storage</a>
+
+    <script>
+      window.addEventListener("storage", notify);
+      function storeData() {
+        var localData = document.getElementById("TextBox1").value;
+        // setItem is used to store data inside Local Storage
+        // localStorage.setItem("userInfo", localData);
+
+        let newWindow = window.open("", "newWindow", "width=200, height=100");
+        newWindow.localStorage.setItem("user", localData);
+        newWindow.close();
+      }
+        function removeData() {
+          localStorage.removeItem("user");
+        }
+      function notify() {
+        var p = document.getElementById("output");
+        p.innerHTML = "Local Storage has been updated: " + new Date();
+      }
+    </script>
+  </body>
+</html>

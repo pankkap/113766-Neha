@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Handling</title>
+  </head>
+  <body>
+    <h1>File Handling Demo</h1>
+    <label>Select File: </label>
+    <input type="file" id="myFileElement" onchange="readFile()" />
+    <textarea name="" id="output" cols="30" rows="10"></textarea>
+    <p>Preview Image</p>
+    <img
+      src=""
+      alt="Preview your Picture"
+      width="200"
+      height="300"
+      id="myImage"
+    />
+    <div id="output1"></div>
+
+    <script>
+      function readFile() {
+        let fileRef = document.getElementById("myFileElement");
+        console.log(fileRef.files[0]);
+
+        const reader = new FileReader();
+        // reader.readAsText(fileRef.files[0]);
+
+        reader.readAsDataURL(fileRef.files[0]);
+
+        // reader.readAsArrayBuffer(fileRef.files[0]);
+
+        reader.onload = function (event) {
+          console.log(event);
+          // document.getElementById('output').innerText = event.target.result;
+          //   document.getElementById("myImage").src = event.target.result;
+          // let buffer = event.target.result;
+          // document.getElementById("output").innerText = buffer.byteLength;
+
+          var videoTag = document.createElement("video");
+          videoTag.src = event.target.result;
+          // videoTag.play();
+          videoTag.controls = true;
+          document.getElementById("output1").appendChild(videoTag);
+        };
+      }
+    </script>
+  </body>
+</html>

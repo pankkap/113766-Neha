@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geo Location Demo</title>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsMsia2xx5a5lJMS3SU3W2T86O7FuMteQ&callback=initMap"
+    ></script>
+    <style>
+      #output1 {
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Geo Location Demo</h1>
+    <button onclick="findLocation()">Get Location</button>
+    <p id="output"></p>
+    <p id="output1"></p>
+
+    <script>
+      function findLocation() {
+        var output = document.getElementById("output");
+        var output1 = document.getElementById("output1");
+        function showPosition(position) {
+          let myLatitude = position.coords.latitude;
+          let myLongitude = position.coords.longitude;
+
+          output.innerHTML = `Latitude: ${myLatitude}, Longitude: ${myLongitude}`;
+
+          let option = {
+            center: { lat: 28.5765, lng: 77.2274 },
+            zoom: 10,
+          };
+
+          let myMap = new google.maps.Map(output1, option);
+        }
+
+        function showError() {
+          output.innerHTML = "Unable to Find Location";
+        }
+
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      }
+    </script>
+  </body>
+</html>

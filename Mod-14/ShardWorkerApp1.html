@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Shared Worker Application-1</h1>
+    <pre>
+        Number-1 <input type="text" id="num1">
+
+        Number-2 <input type="text" id="num2">
+
+        Output: <p id="output"></p>
+
+        <a href="./ShardWorkerApp2.html">Link to Application-2</a>
+        
+    </pre>
+    <script>
+      var num1 = document.getElementById("num1");
+      var num2 = document.getElementById("num2");
+      var output = document.getElementById("output");
+
+      const myWorker = new SharedWorker("SharedWorker.js");
+
+      num1.onchange = function () {
+        myWorker.port.postMessage([parseInt(num1.value), parseInt(num2.value)]);
+        console.log("We are sending Data to Worker");
+      };
+
+      num2.onchange = function () {
+        myWorker.port.postMessage([parseInt(num1.value), parseInt(num2.value)]);
+        console.log("We are sending Data to Worker");
+      };
+
+      myWorker.port.onmessage = function (e) {
+        console.log("Worker Finished Task");
+        document.getElementById("output").innerText = e.data;
+      };
+    </script>
+  </body>
+</html>

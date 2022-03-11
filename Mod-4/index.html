@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Elements</title>
+    <style>
+      input[type="text"],
+      input[type="password"]:valid {
+        border-left: 5px solid green;
+      }
+      input:invalid {
+        border-left: 5px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <pre>
+            <label for="">Username</label>
+            <!-- <input type="text" required pattern="^[a-zA-Z]+[@]$"> -->
+            <input type="text" id="uname" autocomplete="off" autofocus placeholder="Enter your Username"> 
+            
+            <input type="email" name="" id="" required placeholder="Enter email">
+            <!-- <label for="">Password</label>
+            <!-- <input type="text" required pattern="^[0-9]+[a-z]{2}$" id="pwd"> -->
+            <!-- <input type="password" id="pwd" autofocus> -->
+
+            <!-- <label for="">Mobile</label>    
+            <input type="number" value= "123456" required readonly disabled>
+
+            <label for="">DOB</label>
+            <input type="date">
+            
+            <label for="">DOT</label>
+            <input type="time">
+
+            <label for="">Upload Photo</label>
+            <input type="file">
+            <label for="">City</label>
+            <select name="" id="">
+                <option value="" disabled selected>Select City</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Banglore">Banglore</option>
+            </select>
+            Input Select List
+            <input list="city">
+            <datalist id="city">
+                <option value="" disabled selected>Select City</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Banglore">Banglore</option>
+            </datalist>
+            <label for="">Select Color</label>
+            <input type="color"> -->
+            <input type="submit" value="Register" onclick="validateForm(event)">
+
+            </pre>
+      </fieldset>
+    </form>
+
+    <script>
+      function validateForm(e) {
+        // e.preventDefault();
+
+        var uname = document.getElementById("uname").value.trim();
+        // var pwd = document.getElementById("pwd").value.trim();
+        // if (uname != "admin" || pwd != "password") {
+        //   alert("Wrong Username or password");
+        // }
+
+        // testing with Regular Expression
+
+        var pattern = new RegExp(/^[abc]$/);
+        // /^(abc)/ only abc at the starting
+        // /^(abc)$/ only abc at the starting and at the end
+        // /^[abc]$/ any one  alphabet from a or b or c
+        // /^[abc]+$/ any number of time  alphabet from a or b or c
+        // /^[a-z]+$/ any lower alphabet any number of time
+        // /^[A-Z]+$/ any upper alphabet any number of time
+        // /[0-9]{3}/ three digit only between 0-9
+        // /[0-9]{3,10}/ min three and max 10 digit only between 0-9
+        // /[0-9]{3,}/ min three and max any number digit only between 0-9
+        // /[@-.%//\\]/  any one special character
+        // /[@-.%//\\]+/  any number of times special character
+
+        var result = pattern.test(uname);
+        if (result) {
+          console.log("Matched");
+        } else {
+          console.log("Not Matched");
+        }
+      }
+    </script>
+  </body>
+</html>

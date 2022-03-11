@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="myList">
+      <li>Cofee</li>
+      <li>Tea</li>
+      
+    </ul>
+
+    <script>
+        var listRef = document.getElementById('myList');
+
+
+        var newLi = document.createElement('li');  //<li></li>
+        newLi.innerText = "Soft Drink";             // <li>Soft Drink </li>
+        newLi.setAttribute('id',"3rd-element")
+
+        // Insert new node into List
+
+        listRef.appendChild(newLi);
+        listRef.removeChild(listRef.children[1]);
+
+    </script>
+
+  </body>
+</html>

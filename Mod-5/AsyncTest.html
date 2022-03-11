@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async Test</title>
+  </head>
+  <body>
+    <script>
+      console.log("This is First Statement");
+
+      setTimeout(() => {
+        var result = 0;
+        for (let i = 0; i < 1000000000; i++) {
+          result += i;
+        }
+        console.log(result);
+      }, 0000);
+
+      console.log("This is second statement Statement");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>IndexedDB Demo</h1>
+
+    <script>
+      var roster = [
+        {
+          name: "sachin",
+          dob: "22/11/1990",
+          email: "sachin@gmail.com",
+        },
+        {
+          name: "Manish",
+          dob: "02/11/1992",
+          email: "manish@gmail.com",
+        },
+        {
+          name: "Aakash",
+          dob: "22/12/1991",
+          email: "aakash@gmail.com",
+        },
+      ];
+
+      createDB();
+      //   deleteDB()
+      function createDB() {
+        let request = indexedDB.open("myDatabase", 2);
+        console.log(request);
+        request.onerror = function (e) {
+          console.log("Error in Opening Database");
+        };
+        request.onsuccess = function (e) {
+          db = e.target.result;
+          console.log("Database Opened Successfully");
+          //   insertRecords(roster);
+        };
+        request.onupgradeneeded = function (e) {
+          db = e.target.result;
+          var store = db.createObjectStore("roster", { keyPath: "email" });
+          store.transaction.onsuccess = function (e) {
+            console.log("Store has been created");
+          };
+        };
+      }
+
+      function deleteDB() {
+        let request = indexedDB.deleteDatabase("myDatabase");
+        request.onsuccess = function (e) {
+          console.log("Database Deleted Successfully");
+        };
+      }
+
+      function insertRecords(records) {
+        if (db) {
+          const insert_transaction = db.transaction("roster", "readwrite");
+          const store = insert_transaction.objectStore("roster");
+          insert_transaction.onsuccess = function (e) {
+            console.log("Transaction Successfull");
+          };
+          insert_transaction.onerror = function (e) {
+            console.log("Transaction not Successfull");
+          };
+          records.forEach((record) => {
+            let request = store.add(record);
+            request.onsuccess = function (e) {
+              console.log("Record added Successfull ", e);
+            };
+            request.onerror = function (e) {
+              console.log("Record not added ", e);
+            };
+          });
+        }
+      }
+
+      function readRecord(email) {
+        if (db) {
+          const read_transaction = db.transaction("roster", "readonly");
+          const store = read_transaction.objectStore("roster");
+          read_transaction.onsuccess = function (e) {
+            console.log("Transaction Successfull");
+          };
+          read_transaction.onerror = function (e) {
+            console.log("Transaction not Successfull");
+          };
+
+          let request = store.get(email);
+          request.onsuccess = function (e) {
+            console.log("Record read Successfull ", e.target.result);
+          };
+          request.onerror = function (e) {
+            console.log("Record not read ", e);
+          };
+        }
+      }
+
+      function updateRecord(record) {
+        if (db) {
+          const update_transaction = db.transaction("roster", "readwrite");
+          const store = update_transaction.objectStore("roster");
+          update_transaction.onsuccess = function (e) {
+            console.log("Transaction Successfull");
+          };
+          update_transaction.onerror = function (e) {
+            console.log("Transaction not Successfull");
+          };
+
+          let request = store.put(record);
+          request.onsuccess = function (e) {
+            console.log("Record update Successfull ", e.target.result);
+          };
+          request.onerror = function (e) {
+            console.log("Record not updated ", e);
+          };
+        }
+      }
+
+      function deleteRecord(email) {
+        if (db) {
+          const delete_transaction = db.transaction("roster", "readwrite");
+          const store = delete_transaction.objectStore("roster");
+          delete_transaction.onsuccess = function (e) {
+            console.log("Transaction Successfull");
+          };
+          delete_transaction.onerror = function (e) {
+            console.log("Transaction not Successfull");
+          };
+
+          let request = store.delete(email);
+          request.onsuccess = function (e) {
+            console.log("Record deleted Successfull ", e.target.result);
+          };
+          request.onerror = function (e) {
+            console.log("Record not deleted ", e);
+          };
+        }
+      }
+    </script>
+  </body>
+</html>
